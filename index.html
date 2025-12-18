@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Supermarket</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
+    <style>
+        .dropdown:hover .dropbtn {
+            background-color: #575757;
+        }
+        .dropdown {
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <a href="#" id="logo">Super <span>Mart</span></a>
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Categories</a>
+                <div class="dropdown-content">
+                    <a href="#">fresh Products</a>
+                    <a href="#">Bakery Items</a>
+                    <a href="#">Beverages</a>
+                    <a href="#">Sweet & Snacks</a>
+                    <a href="#">Household Items</a>
+                    <a href="#">Health & Beauty</a>
+                    <a href="#">Liquors</a>
+                    <a href="#">Pet Care</a>
+                </div>
+            </div>
+            <a href="#">About Us</a>
+            <a href="#">Contact US</a>
+        </nav>
+        <div class="icons">
+
+            <a href="#" id="cart" class="fas fa-shopping-cart"></a>
+            <a href="#" id="menu-bars" class="fas fa-bars"></a>
+        </div>
+       <div class="shopping-cart">
+           <div class="shopping-box">
+               <i class="fas fa-times"></i>
+               <img src="imgaes/tommato2.png" alt="">
+               <div class="shopping-content">
+                   <h3>organic food</h3>
+                   <span class="quantity">1</span>
+                   <span class="multiply">*</span>
+                   <span class="price">$4.00</span>
+               </div>
+           </div>
+           <div class="shopping-box">
+            <i class="fas fa-times"></i>
+            <img src="imgaes/tommato2.png" alt="">
+            <div class="shopping-content">
+                <h3>organic food</h3>
+                <span class="quantity">1</span>
+                <span class="multiply">*</span>
+                <span class="price">$4.00</span>
+            </div>
+        </div>
+        <div class="shopping-box">
+            <i class="fas fa-times"></i>
+            <img src="imgaes/tommato2.png" alt="">
+            <div class="shopping-content">
+                <h3>organic food</h3>
+                <span class="quantity">1</span>
+                <span class="multiply">*</span>
+                <span class="price">$4.00</span>
+            </div>
+        </div>
+        <h3 class="total">total price: <span>$30.00</span> </h3>
+        <a href="#" class="chechout">check out</a>
+       </div>
+    </header>
+<!-- home section starts -->
+    <div id="home" class="home">
+        <h1>ALL<span> IN </span>ONE</h1>
+    </div>
+<!-- ende -->
+
+<!-- organic menu -->
+<div class="organic-menu">
+
+    <h1>Item <span>menu</span></h1>
+
+    <div class="orgainic-inner">
+        <a href="#" class="freshfood">Fresh Products</a>
+        <a href="#" class="freshfood">Bakery Items</a>
+        <a href="#" class="freshfood">Beverages</a>
+        <a href="#" class="freshfood">Sweet & Snacks</a>
+        <a href="#" class="freshfood">Household Items</a>
+        <a href="#" class="freshfood">Health & Beauty</a>
+        <a href="liquor.html" class="freshfood">Liquors</a>
+        <a href="#" class="freshfood">Pet Care</a>
+    </div>
+</div>
+
+<!-- fresh food -->
+<div class="fresh-food-section">
+    <h1>look <span>out</span></h1>
+    <div class="inner-food">
+        <div class="fresh-box">
+            <img src="https://spar2u.lk/cdn/shop/files/category-02_285x285.png?v=1710419021" alt="">
+            <h3>Fresh Products</h3>
+        </div>
+
+        <div class="fresh-box">
+            <img src="https://cargillsonline.com/VendorItems/MenuCategory/74028631-SUB-CAT-IMAGE_Bakery.jpg" alt="">
+            <h3>Bakery Items</h3>
+        </div>
+
+        <div class="fresh-box">
+            <img src="https://spar2u.lk/cdn/shop/files/category-01_285x285.png?v=1710419019" alt="">
+            <h3> Beverages</h3>
+        </div>
+
+        <div class="fresh-box">
+            <img src="https://spar2u.lk/cdn/shop/files/category-05_285x285.png?v=1710419021" alt="">
+            <h3>Sweet & Snacks</h3>
+        </div>
+
+        <div class="fresh-box">
+            <img src="https://cargillsonline.com/VendorItems/MenuCategory/73018462-SUB-CAT-IMAGE_Household.jpg" alt="">
+            <h3>Household Items</h3>
+        </div>
+
+        <div class="fresh-box">
+            <img src="https://cargillsonline.com/VendorItems/MenuCategory/95731420-SUB-CAT-IMAGES-Health-&-Beauty.jpg" alt="">
+            <h3>Health & Beauty</h3>
+        </div>
+        <div class="fresh-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxdSXRhnOelei4iIqON0_9PZh_g7tKMCqyag&s" alt="">
+            <h3> Liquors</h3>
+        </div>
+        <div class="fresh-box">
+            <img src="https://cargillsonline.com/VendorItems/MenuCategory/07351964-SUB-CAT-IMAGE_Pet-Products.jpg" alt="">
+            <h3>Pet Care</h3>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
+<!-- fresh food end -->
+
+<!-- fruit and vegitable -->
+<div class="fruit-vegi">
+    <h1>fresh  <span>Products</span></h1>
+    <div class="main-fruits">
+        <div class="left-fruit fruits-only">
+            <div class="inner-fruit">
+                <img src="https://spar2u.lk/cdn/shop/files/Royalgalaapples_70af4b5b-fe99-4b11-bb5f-3d3d7ea7d934_260x338.jpg?v=1714653007" alt="">
+                <h3>RED <span>Apple </span></h3>
+            </div>
+            <div class="inner-fruit">
+                <img src="https://spar2u.lk/cdn/shop/files/GreenGrapes_f4d85d03-9278-4e27-b081-1f855afc732e_260x338.jpg?v=1714653390" alt="">
+                <h3>GREEN <span>Grapes</span></h3>
+            </div>
+           <div class="left-fruit">
+            <h3>Fresh <span>Fruits</span></h3>
+            <h1>50+ fresh fruits</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda commodi atque est necessitatibus. Ipsam ab officia id, ex saepe rem rerum ipsum quibusdam repellat, magni animi eum quo nostrum cum!</p>
+           </div>
+    </div>
+    <div class="main-fruits">
+        <div class="left-fruit fruits-only">
+            <div class="inner-fruit">
+                <img src="https://spar2u.lk/cdn/shop/files/carotts_40c1ff57-d04e-4cc1-96bf-08689150c36a_260x338.jpg?v=1714635345" alt="">
+                <h3>Fresh <span>Carrots</span></h3>
+            </div>
+            <div class="inner-fruit">
+                <img src="https://spar2u.lk/cdn/shop/files/BigOnion_d90991dd-4a81-47f6-805d-56dde7e12d9b_260x338.jpg?v=1714738085" alt="">
+                <h3>fresh <span>Onions</span></h3>
+            </div>
+        </div>
+
+        <div class="left-fruit">
+            <h3>Fresh <span>Vegetables</span></h3>
+            <h1>50+ fresh vegetables</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda commodi atque est necessitatibus. Ipsam ab officia id, ex saepe rem rerum ipsum quibusdam repellat, magni animi eum quo nostrum cum!</p>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- fruit and vegitable ende -->
+
+<!-- fresh juices -->
+
+
+<div class="fruit-vegi">
+    <h1>fresh  <span>Bakery Items</span> </h1>
+    <div class="main-fruits">
+
+        <div class="left-fruit">
+            <h3>fresh <span>Bakery Items</span></h3>
+            <h1>30+ fresh Bakery Items</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda commodi atque est necessitatibus. Ipsam ab officia id, ex saepe rem rerum ipsum quibusdam repellat, magni animi eum quo nostrum cum!</p>
+           </div>
+
+        <div class="left-fruit fruits-only">
+            <div class="inner-fruit">
+                <img src="https://spar2u.lk/cdn/shop/files/4509365-02_260x338.jpg?v=1713682022" alt="">
+                <h3>FINAGLE <span>Sandwich Bread</span></h3>
+            </div>
+            <div class="inner-fruit">
+                <img src="https://spar2u.lk/cdn/shop/files/4507693-01_260x338.jpg?v=1713682637" alt="">
+                <h3>CLASSIC <span>Date Cake</span></h3>
+            </div>
+        </div>
+    
+    </div>
+    
+</div>
+
+    <div class="fruit-vegi">
+        <h1><span>Beverages</span></h1>
+        <div class="main-fruits">
+            <div class="left-fruit fruits-only">
+                <div class="inner-fruit">
+                    <img src="https://spar2u.lk/cdn/shop/files/3014001-02_260x338.jpg?v=1713633535" alt="">
+                    <h3>SUN <span>CRUSH </span></h3>
+                </div>
+                <div class="inner-fruit">
+                    <img src="https://spar2u.lk/cdn/shop/files/3011922-02_260x338.jpg?v=1713632147" alt="">
+                    <h3>COCA  <span>COLA PET</span></h3>
+                </div>
+                <div class="left-fruit">
+                    <h3><span>Beverages</span></h3>
+                    <h1>50+ Beverages</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda commodi atque est necessitatibus. Ipsam ab officia id, ex saepe rem rerum ipsum quibusdam repellat, magni animi eum quo nostrum cum!</p>
+                </div>
+            </div>
+
+
+<!-- fresh juices ended -->
+<!-- our gallery -->
+
+<div class="our-gallery">
+    <h1>fresh <span>food and</span> vegitables </h1>
+    <div class="inner-gallery">
+        <div class="gallery-box">
+            <img src="imgaes/juice1.png" alt="">
+            <h3>fresh <span>juices</span></h3>
+        </div>
+
+        <div class="gallery-box">
+            <img src="imgaes/juice2.png" alt="">
+            <h3>fresh <span>juices</span></h3>
+        </div>
+
+        <div class="gallery-box">
+            <img src="imgaes/juice3.png" alt="">
+            <h3>fresh <span>juices</span></h3>
+        </div>
+
+        <div class="gallery-box">
+            <img src="imgaes/vegi3.png" alt="">
+            <h3>fresh <span>juices</span></h3>
+        </div>
+
+        <div class="gallery-box">
+            <img src="imgaes/vegi2.png" alt="">
+            <h3>fresh <span>juices</span></h3>
+        </div>
+
+        <div class="gallery-box">
+            <img src="imgaes/vegi1.png" alt="">
+            <h3>fresh <span>juices</span></h3>
+        </div>
+    </div>
+</div>
+
+
+<!-- our gallery ended -->
+
+<div class="testimonials">
+    <h1>What <span>our customer</span> says</h1>
+<div class="main-testimonial">
+
+    <div class="our-customers">
+        <div class="inner-testi">
+            <img src="imgaes/testimonials.png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ad ea ab, provident sit, doloribus, nemo amet velit voluptates magnam iusto. Accusamus dolores eveniet eum obcaecati iure quos voluptas molestiae.</p>
+        </div>
+
+    </div>
+
+    <div class="our-customers">
+        <div class="inner-testi">
+            <img src="imgaes/testimonials.png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ad ea ab, provident sit, doloribus, nemo amet velit voluptates magnam iusto. Accusamus dolores eveniet eum obcaecati iure quos voluptas molestiae.</p>
+        </div>
+
+    </div>
+</div>
+
+   
+
+    
+</div>
+
+
+
+
+
+
+    <script src="script.js"></script>
+
+    <div class="footer">
+        <p>ABCD Marketing Services Pvt Ltd.<br>No:148, Vauxhall Street, Colombo 2, Sri Lanka.</p>
+        <p>+94 11 2303500<br>(Daily operating hours 8.00a.m to 8.00p.m)</p>
+        <p>Quick Links: <a href="#">Home</a> | <a href="#">Catalogue & Deals</a> | <a href="#">Utility bill payments</a> | <a href="#">Track my order</a> | <a href="#">Categories</a></p>
+        <p>Useful Links: <a href="#">Privacy Policy</a> | <a href="#">FAQ</a> | <a href="#">Terms and Conditions</a> | <a href="#">Stores</a> | <a href="#">Delivery grid</a> | <a href="#">Customer Service</a> | <a href="#">Contact us</a> | <a href="#">About us</a></p>
+        <p class="copyright">© 2024 ABCD Marketing Services Pvt Ltd. All rights reserved.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Liquors</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
+
+
+
+    <style>
+
+
+   
+        .dropdown:hover .dropbtn {
+            background-color: #575757;
+        }
+        .dropdown {
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        .liquors-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .liquors-section h1 {
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', serif;
+            font-size: 2.5em;
+            color: #333;
+        }
+        .liquor-box {
+            display: inline-block;
+            width: 220px;
+            height: auto; 
+            margin: 20px;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            box-sizing: border-box;
+            background-color: #fff;
+            position: relative;
+        }
+
+        
+
+        .liquor-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        .liquor-box img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .liquor-box:hover img {
+            box-shadow: 0 0 20px 5px rgba(0, 123, 255, 0.5); 
+        }
+        .liquor-box h3 {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.0em;
+            margin: 10px 0;
+            color: #333;
+            transition: color 0.3s;
+        }
+        .liquor-box:hover h3 {
+            color: #007BFF;
+        }
+        .price {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8em;
+            color: #555;
+            font-weight: bold;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .quantity-controls input {
+            width: 40px;
+            text-align: center;
+            margin: 0 10px;
+        }
+        .add-to-cart {
+            background-color: #ca1616;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .add-to-cart:hover {
+            background-color: #0056b3;
+        }
+        .add-to-cart i {
+            margin-right: 5px;
+        }
+        .modify-button {
+            background-color: #ccc;
+            border: none;
+            padding: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: background-color 0.3s;
+        }
+        .modify-button:hover {
+            background-color: #bbb;
+        }
+
+
+        .container {
+            display: flex;
+            align-items: center; 
+            margin: 100px;
+        }
+        .container img {
+            max-width: 600px; 
+            margin-right: 100px; 
+        }
+        .content {
+            max-width: 600px;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.2em;
+            color: #0ab350; 
+        }
+
+        #cart-count {
+            position: relative;
+            color: #fff;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .button {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        
+#liquorForm {
+    margin: 20px 2px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+#liquorForm div {
+    margin-bottom: 15px;
+}
+
+
+#liquorForm label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+
+#liquorForm input[type="text"],
+#liquorForm input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+#liquorForm button {
+    font-family: 'Times New Roman', serif;
+    background-color: #ca1616;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+
+#liquorForm button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 600px) {
+    #liquorForm {
+        padding: 15px;
+    }
+
+    #liquorForm input[type="text"],
+    #liquorForm input[type="number"] {
+        font-size: 14px;
+    }
+
+    #liquorForm button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+
+.liquor-table {
+    font-size: 15px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    
+}
+
+
+.liquor-table thead {
+    background-color: #0056b3;
+    color: rgb(0, 0, 0);
+}
+
+.liquor-table th,
+.liquor-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.liquor-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.liquor-table tbody tr:hover {
+    background-color: #e9ecef; 
+}
+
+.liquor-table .action-buttons {
+    display: flex;
+    gap: 5px; 
+}
+
+.liquor-table button {
+    background-color: #ca1616; 
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: 'Times New Roman', serif;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+
+.liquor-table button:hover {
+    background-color: #007bff; 
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .liquor-table th,
+    .liquor-table td {
+        font-size: 20px;
+        padding: 8px 10px; 
+    }
+}
+
+
+.cart-items-dropdown {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 250px;
+    top: 50px;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items-dropdown h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cart-items-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-items-dropdown ul li {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.cart-items-dropdown button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-items-dropdown button:hover {
+    background-color: #0056b3;
+}
+
+
+    </style>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <title>Liquor Bazaar</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" id="logo">Super <span>Mart</span></a>
+
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Categories</a>
+                <div class="dropdown-content">
+                    <a href="#">Fresh Products</a>
+                    <a href="#">Bakery Items</a>
+                    <a href="#">Beverages</a>
+                    <a href="#">Sweet & Snacks</a>
+                    <a href="#">Household Items</a>
+                    <a href="#">Health & Beauty</a>
+                    <a href="#">Liquors</a>
+                    <a href="#">Pet Care</a>
+                </div>
+            </div>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+        </nav>
+
+        <div class="icons">
+            <a href="#" id="cart" class="fas fa-shopping-cart" onclick="toggleCartItems()"></a>
+            <span id="cart-count">0</span>
+            <a href="#" id="menu-bars" class="fas fa-bars"></a>
+           
+            <div id="cart-items" class="cart-items-dropdown" style="display:none;">
+                <h4>Your Cart</h4>
+                <ul id="cart-items-list"></ul>
+                <button onclick="navigateToCart()">Go to Cart</button>
+            </div>
+        </div>
+    </header>
+
+  
+    <div class="liquors-section">
+        <h1>LIQUOR BAZAAR</h1>
+
+        <div class="container">
+            <img src="content.jpg" alt="Description of Image">
+            <div class="content">
+                <h2>LIQUOR BAZAAR</h2>
+                <p>Liquors, also known as spirits, are distilled beverages that contain a higher alcohol content compared to beer and wine. They are typically made from fermented grain, fruit, or vegetables, and can be classified into several categories, including whiskey, vodka, rum, gin, tequila, and brandy.</p>
+            </div>
+        </div>
+
+        <div class="liquor-box" data-name="Ballantines Finest Whiskey" data-price="17400">
+            <img src="1.jpg.webp" alt="Ballantines Finest Whiskey">
+            <h3>Ballantines Finest Whiskey</h3>
+            <span class="price">LKR 17,400.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('ballantines', -1)">-</button>
+                <input type="number" id="ballantines" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('ballantines', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('ballantines', 17400)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Santa Helena Sauvignon Blanc" data-price="3600">
+            <img src="2.jpg.webp" alt="Santa Helena Sauvignon Blanc">
+            <h3>Santa Helena Sauvignon Blanc</h3>
+            <span class="price">LKR 3,600.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('santa-helena-sauvignon', -1)">-</button>
+                <input type="number" id="santa-helena-sauvignon" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('santa-helena-sauvignon', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('santa-helena-sauvignon', 3600)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="McGuigan Black Label Moscato" data-price="4750">
+            <img src="3.jpg.webp" alt="McGuigan Black Label Moscato">
+            <h3>McGuigan Black Label Moscato</h3>
+            <span class="price">LKR 4,750.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('mcguigan-moscato', -1)">-</button>
+                <input type="number" id="mcguigan-moscato" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('mcguigan-moscato', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('mcguigan-moscato', 4750)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Glenlivet Founders Reserve" data-price="29350">
+            <img src="4.jpg.webp" alt="Glenlivet Founders Reserve">
+            <h3>Glenlivet Founders Reserve</h3>
+            <span class="price">LKR 29,350.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('glenlivet', -1)">-</button>
+                <input type="number" id="glenlivet" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('glenlivet', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('glenlivet', 29350)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Chivas Regal XV Gold" data-price="37500">
+            <img src="5.jpg.webp" alt="Chivas Regal XV Gold">
+            <h3>Chivas Regal XV Gold</h3>
+            <span class="price">LKR 37,500.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('chivas', -1)">-</button>
+                <input type="number" id="chivas" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('chivas', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('chivas', 37500)">Add to Cart</button>
+        </div>
+
+      
+        <div class="liquor-box" data-name="Jacobs Creek Sparkling Chardonnay Pinot Noir" data-price="5850">
+            <img src="6.jpg.webp" alt="Jacobs Creek Sparkling Chardonnay Pinot Noir">
+            <h3>Jacobs Creek Sparkling Chardonnay Pinot Noir</h3>
+            <span class="price">LKR 5,850.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('jacobs-creek-sparkling', -1)">-</button>
+                <input type="number" id="jacobs-creek-sparkling" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('jacobs-creek-sparkling', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('jacobs-creek-sparkling', 5850)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Kraemer Demi Sec" data-price="4450">
+            <img src="7.jpg.webp" alt="Kraemer Demi Sec">
+            <h3>Kraemer Demi Sec</h3>
+            <span class="price">LKR 4,450.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('kraemer', -1)">-</button>
+                <input type="number" id="kraemer" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('kraemer', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('kraemer', 4450)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="The Singleton of Dufftown, 12 Years" data-price="22500">
+            <img src="8.jpg.webp" alt="The Singleton of Dufftown, 12 Years">
+            <h3>The Singleton of Dufftown, 12 Years</h3>
+            <span class="price">LKR 22,500.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('singleton', -1)">-</button>
+                <input type="number" id="singleton" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('singleton', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('singleton', 22500)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Moet and Chandon Imperial Brut" data-price="19950">
+            <img src="9.jpg.webp" alt="Moet and Chandon Imperial Brut">
+            <h3>Moet and Chandon Imperial Brut</h3>
+            <span class="price">LKR 19,950.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('moet', -1)">-</button>
+                <input type="number" id="moet" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('moet', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('moet', 19950)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Santa Helena Merlot" data-price="3000">
+            <img src="10.jpg.webp" alt="Santa Helena Merlot">
+            <h3>Santa Helena Merlot</h3>
+            <span class="price">LKR 3,000.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('santa-helena-merlot', -1)">-</button>
+                <input type="number" id="santa-helena-merlot" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('santa-helena-merlot', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('santa-helena-merlot', 3000)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Gordons Dry Gin" data-price="7800">
+            <img src="11.jpg.webp" alt="Gordons Dry Gin">
+            <h3>Gordons Dry Gin</h3>
+            <span class="price">LKR 7,800.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('gordons', -1)">-</button>
+                <input type="number" id="gordons" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('gordons', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('gordons', 7800)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Jacobs Creek Chardonnay" data-price="4600">
+            <img src="12.jpg.webp" alt="Jacobs Creek Chardonnay">
+            <h3>Jacobs Creek Chardonnay</h3>
+            <span class="price">LKR 4,600.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('jacobs-creek-chardonnay', -1)">-</button>
+                <input type="number" id="jacobs-creek-chardonnay" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('jacobs-creek-chardonnay', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('jacobs-creek-chardonnay', 4600)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Glenfiddich 12 Years" data-price="12000">
+            <img src="13.jpg.webp" alt="Glenfiddich 12 Years">
+            <h3>Glenfiddich 12 Years</h3>
+            <span class="price">LKR 12,000.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('glenfiddich', -1)">-</button>
+                <input type="number" id="glenfiddich" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('glenfiddich', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('glenfiddich', 12000)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="McGuigan Black Label Cabernet Sauvignon" data-price="4400">
+            <img src="14.jpg.webp" alt="McGuigan Black Label Cabernet Sauvignon">
+            <h3>McGuigan Black Label Cabernet Sauvignon</h3>
+            <span class="price">LKR 4,400.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('mcguigan-cabernet', -1)">-</button>
+                <input type="number" id="mcguigan-cabernet" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('mcguigan-cabernet', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('mcguigan-cabernet', 4400)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Jam Jar Sweet White" data-price="3750">
+            <img src="15.jpg.webp" alt="Jam Jar Sweet White">
+            <h3>Jam Jar Sweet White</h3>
+            <span class="price">LKR 3,750.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('jam-jar', -1)">-</button>
+                <input type="number" id="jam-jar" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('jam-jar', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('jam-jar', 3750)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Jameson Irish Whiskey" data-price="8400">
+            <img src="16.jpg.webp" alt="Jameson Irish Whiskey">
+            <h3>Jameson Irish Whiskey</h3>
+            <span class="price">LKR 8,400.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('jameson', -1)">-</button>
+                <input type="number" id="jameson" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('jameson', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('jameson', 8400)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Santa Helena Cabernet Sauvignon" data-price="3200">
+            <img src="17.jpg.webp" alt="Santa Helena Cabernet Sauvignon">
+            <h3>Santa Helena Cabernet Sauvignon</h3>
+            <span class="price">LKR 3,200.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('santa-helena-cabernet', -1)">-</button>
+                <input type="number" id="santa-helena-cabernet" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('santa-helena-cabernet', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('santa-helena-cabernet', 3200)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Cape Dreams Cabernet Sauvignon" data-price="2900">
+            <img src="18.jpg.webp" alt="Cape Dreams Cabernet Sauvignon">
+            <h3>Cape Dreams Cabernet Sauvignon</h3>
+            <span class="price">LKR 2,900.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('cape-dreams-cabernet', -1)">-</button>
+                <input type="number" id="cape-dreams-cabernet" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('cape-dreams-cabernet', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('cape-dreams-cabernet', 2900)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Lion Lager, 330ml Can" data-price="2750">
+            <img src="19.jpg.webp" alt="Lion Lager, 330ml Can">
+            <h3>Lion Lager, 330ml Can</h3>
+            <span class="price">LKR 2,750.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('lion-lager', -1)">-</button>
+                <input type="number" id="lion-lager" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('lion-lager', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('lion-lager', 2750)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Cape Dreams Sauvignon Blanc" data-price="2500">
+            <img src="20.jpg.webp" alt="Cape Dreams Sauvignon Blanc">
+            <h3>Cape Dreams Sauvignon Blanc</h3>
+            <span class="price">LKR 2,500.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('cape-dreams-sauvignon', -1)">-</button>
+                <input type="number" id="cape-dreams-sauvignon" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('cape-dreams-sauvignon', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('cape-dreams-sauvignon', 2500)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="St Remy VSOP Miniature" data-price="4500">
+            <img src="21.jpg.webp" alt="St Remy VSOP Miniature">
+            <h3>St Remy VSOP Miniature</h3>
+            <span class="price">LKR 4,500.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('st-remy', -1)">-</button>
+                <input type="number" id="st-remy" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('st-remy', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('st-remy', 4500)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Martini Prosecco Sparkling Wine" data-price="6000">
+            <img src="22.jpg.webp" alt="Martini Prosecco Sparkling Wine">
+            <h3>Martini Prosecco Sparkling Wine</h3>
+            <span class="price">LKR 6,000.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('martini', -1)">-</button>
+                <input type="number" id="martini" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('martini', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('martini', 6000)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Absolut Vodka" data-price="7000">
+            <img src="23.jpg.webp" alt="Absolut Vodka">
+            <h3>Absolut Vodka</h3>
+            <span class="price">LKR 7,000.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('absolut', -1)">-</button>
+                <input type="number" id="absolut" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('absolut', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('absolut', 7000)">Add to Cart</button>
+        </div>
+
+        <div class="liquor-box" data-name="Dewars White Label Whiskey" data-price="0">
+            <img src="24.jpg.webp" alt="Dewars White Label Whiskey">
+            <h3>Dewars White Label Whiskey</h3>
+            <span class="price">LKR 13,150.00</span>
+            <div class="quantity-controls">
+                <button class="modify-button" onclick="changeQuantity('placeholder', -1)">-</button>
+                <input type="number" id="placeholder" value="0" min="0" class="quantity">
+                <button class="modify-button" onclick="changeQuantity('placeholder', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('placeholder', 13150)">Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        const cart = {}; 
+        let cartCount = 0; 
+
+        
+        function toggleCartItems() {
+            const cartItemsDropdown = document.getElementById("cart-items");
+            cartItemsDropdown.style.display = cartItemsDropdown.style.display === "none" ? "block" : "none";
+            renderCartItems();
+        }
+
+       
+function addToCart(item, price) {
+    const quantityInput = document.getElementById(item);
+    const quantity = parseInt(quantityInput.value);
+
+    if (quantity > 0) {
+        const total = price * quantity;
+
+       
+        const formData = new FormData();
+        formData.append('name', quantityInput.closest('.liquor-box').dataset.name);
+        formData.append('price', price);
+        formData.append('quantity', quantity);
+        formData.append('total', total);
+
+       
+        fetch('cart_api.php', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                cartCount += quantity; 
+                document.getElementById("cart-count").innerText = cartCount;
+                quantityInput.value = 0; 
+                renderCartItems();
+                alert(data.message);
+            }
+        });
+    }
+}
+
+
+function renderCartItems() {
+    fetch('fetch_cart1.php')
+        .then(response => response.json())
+        .then(data => {
+            const cartItemsList = document.getElementById("cart-items-list");
+            cartItemsList.innerHTML = ''; 
+
+            data.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - Quantity: ${item.quantity} - Total: LKR ${item.total}`;
+                cartItemsList.appendChild(li);
+            });
+        });
+}
+
+
+        
+        function navigateToCart() {
+            
+            alert("Navigating to cart...");
+        }
+
+       
+        function changeQuantity(item, change) {
+            const quantityInput = document.getElementById(item);
+            let currentValue = parseInt(quantityInput.value) || 0; 
+            currentValue += change; 
+            if (currentValue < 0) currentValue = 0; 
+            quantityInput.value = currentValue; 
+        }
+    </script>
+    
+
+
+
+    
+    
+    <h1>Liquor Inventory Form</h1>
+
+   
+    <div class="liquorForm">
+        <form id="liquorForm" onsubmit="return false;">
+            <input type="hidden" id="liquorId">
+            <input type="text" id="name" placeholder="Liquor Name" required>
+            <input type="number" id="price" placeholder="Price" required>
+            <input type="number" id="quantity" placeholder="Quantity" required>
+            <button type="button" id="addButton" onclick="addLiquor()">Add</button>
+            <button type="button" id="updateButton" style="display:none;" onclick="updateLiquor()">Update</button>
+            <button type="button" id="deleteButton" style="display:none;" onclick="deleteLiquor()">Delete</button>
+        </form>
+    </div>
+    
+    <h1>Liquor Inventory Table</h1>
+    
+    
+    <div class="liquor-table">
+        <table id="liquorTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        let liquorId = 1; 
+        const liquorTable = document.getElementById('liquorTable').getElementsByTagName('tbody')[0];
+    
+       
+        window.onload = function() {
+            fetchLiquors();
+        };
+    
+        function fetchLiquors() {
+            fetch('liquor_api.php')
+                .then(response => response.json())
+                .then(data => {
+                    liquorTable.innerHTML = ''; 
+                    data.forEach(item => {
+                        const newRow = liquorTable.insertRow();
+                        newRow.innerHTML = `
+                            <td>${item.id}</td>
+                            <td>${item.name}</td>
+                            <td>LKR ${parseFloat(item.price).toFixed(2)}</td>
+                            <td>${item.quantity}</td>
+                            <td>LKR ${parseFloat(item.total).toFixed(2)}</td>
+                            <td>
+                                <button onclick="editRow(this)">Edit</button>
+                            </td>
+                        `;
+                    });
+                    liquorId = data.length + 1; 
+                });
+        }
+    
+        function addLiquor() {
+            const name = document.getElementById('name').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+            
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('price', price);
+            formData.append('quantity', quantity);
+    
+            fetch('liquor_api.php', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    fetchLiquors(); 
+                    document.getElementById('liquorForm').reset(); 
+                } else {
+                    alert(data.message);
+                }
+            });
+        }
+    
+        function updateLiquor() {
+            const id = document.getElementById('liquorId').value;
+            const name = document.getElementById('name').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+            
+          
+            const formData = new FormData();
+            formData.append('id', id);
+            formData.append('name', name);
+            formData.append('price', price);
+            formData.append('quantity', quantity);
+    
+            fetch('liquor_api.php', {
+                method: 'PUT',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    fetchLiquors(); 
+                    document.getElementById('liquorForm').reset();
+                    document.getElementById('updateButton').style.display = 'none';
+                    document.getElementById('deleteButton').style.display = 'none'; 
+                } else {
+                    alert(data.message);
+                }
+            });
+        }
+    
+       
+        function deleteLiquor() {
+            const id = document.getElementById('liquorId').value;
+            if (id) {
+                const formData = new FormData();
+                formData.append('id', id);
+    
+                fetch('liquor_api.php', {
+                    method: 'DELETE',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        fetchLiquors();
+                        document.getElementById('liquorForm').reset(); 
+                        document.getElementById('liquorId').value = '';
+                    } else {
+                        alert(data.message);
+                    }
+                });
+            }
+        }
+    
+      
+        function editRow(button) {
+            const row = button.parentNode.parentNode; 
+            document.getElementById('liquorId').value = row.cells[0].innerText; 
+            document.getElementById('name').value = row.cells[1].innerText; 
+            document.getElementById('price').value = parseFloat(row.cells[2].innerText.replace('LKR ', '')).toFixed(2);
+            document.getElementById('quantity').value = row.cells[3].innerText; 
+            document.getElementById('updateButton').style.display = 'inline-block'; 
+            document.getElementById('deleteButton').style.display = 'inline-block'; 
+        }
+    </script>
+    
+    
+   
+
+
+
+
+
+
+    
+    <div class="footer">
+        <p>ABCD Marketing Services Pvt Ltd.<br>No:148, Vauxhall Street, Colombo 2, Sri Lanka.</p>
+        <p>+94 11 2303500<br>(Daily operating hours 8.00a.m to 8.00p.m)</p>
+        <p>Quick Links: <a href="#">Home</a> | <a href="#">Catalogue & Deals</a> | <a href="#">Utility bill payments</a> | <a href="#">Track my order</a> | <a href="#">Categories</a></p>
+        <p>Useful Links: <a href="#">Privacy Policy</a> | <a href="#">FAQ</a> | <a href="#">Terms and Conditions</a> | <a href="#">Stores</a> | <a href="#">Delivery grid</a> | <a href="#">Customer Service</a> | <a href="#">Contact us</a> | <a href="#">About us</a></p>
+        <p class="copyright">© 2024 ABCD Marketing Services Pvt Ltd. All rights reserved.</p>
+    </div>
+
+
+
+
+
+</body>
+</html>
+
+
+
